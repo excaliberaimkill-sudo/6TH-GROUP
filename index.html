@@ -36,16 +36,22 @@
       transition: transform 0.2s;
     }
     #device-popup button:hover {transform: scale(1.1);}
-    #device-popup h2 {margin-bottom: 20px;}
+/* Device popup title spacing */
+#device-popup h2 {
+  margin-bottom: 20px;
+}
 
-    /* Background Video */
-    .background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
+/* Full-screen background image */
+.background {
+  position: fixed;   /* Stay behind everything */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire screen without stretching */
+  z-index: -1;       /* Behind all content */
+}
+
 
     /* Frosted Glass Container */
     .glass {
@@ -113,10 +119,9 @@
     <button onclick="selectDevice('pc')">PC</button>
   </div>
 
-  <!-- Background Video -->
-  <video autoplay muted loop class="background">
-    <source src="https://files.catbox.moe/jzkn46.mp4" type="video/mp4">
-  </video>
+  <!-- Background image -->
+ <img src="https://files.catbox.moe/qnf0pe.jpg" alt="Background" class="background" />
+
 
   <!-- Header -->
   <header class="glass">
@@ -162,7 +167,7 @@
       <section id="features" class="glass">
         <h2>Features of Multinational Companies</h2>
         <ul>
-          <li>Large-scale operations in multiple countries.</li>
+          <li>*Global Presence and Networks* — MNCs operate across multiple countries; their production and distribution networks connect various regions.</li>
           <li>Centralized control with headquarters in one nation.</li>
           <li>Advanced technology and strong research & development facilities.</li>
           <li>Heavy foreign direct investment (FDI) in host countries.</li>
