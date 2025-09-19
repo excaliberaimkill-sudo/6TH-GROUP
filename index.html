@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6th Group Business Assignment</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
+    body {
+      color: #fff;
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: all 0.3s ease;
+    }
+
+    /* Device popup */
+    #device-popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #device-popup button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    #device-popup button:hover {transform: scale(1.1);}
+    #device-popup h2 {margin-bottom: 20px;}
+
+    /* Background Video */
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Frosted Glass Container */
+    .glass {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* Header */
+    header { text-align: center; padding: 2rem; }
+    header h1 {font-size: 2.5rem; margin-bottom: .5rem;}
+    header h2 {font-size: 1.3rem; font-weight: normal;}
+
+    /* Layout */
+    main { display: flex; gap: 20px; max-width: 1300px; margin: auto; padding: 2rem; }
+
+    /* TOC */
+    nav.toc {
+      flex: 1; max-width: 280px;
+      position: sticky; top: 20px; height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+    nav.toc ul {list-style: none;}
+    nav.toc li {margin: .8rem 0;}
+    nav.toc a {color: #fff; text-decoration: none; font-weight: bold; transition: color .3s;}
+    nav.toc a:hover {color: #ffd700;}
+
+    /* Content */
+    article { flex: 3; min-width: 0; }
+    article h2 { font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: .5rem; }
+    article p, article li { margin-bottom: 1rem; text-align: justify; }
+
+    /* Footer */
+    footer { text-align: center; padding: 1.5rem; margin-top: 2rem; }
+
+    /* Animations */
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+    /* Mobile & PC layout classes */
+    body.mobile main { flex-direction: column; padding: 1rem; }
+    body.mobile nav.toc { max-width: 100%; position: relative; top: 0; height: auto; margin-bottom: 1rem; }
+    body.mobile article { flex: 1; }
+
+    /* Print Styling */
+    @media print {
+      body {color: #000; background: #fff;}
+      .background {display: none;}
+      nav.toc {display: none;}
+      .glass { background: transparent; color: #000; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+      header, footer, section {page-break-inside: avoid;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Device Selection Popup -->
+  <div id="device-popup">
+    <h2>Select Your Device</h2>
+    <button onclick="selectDevice('mobile')">Mobile</button>
+    <button onclick="selectDevice('pc')">PC</button>
+  </div>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="background">
+    <source src="https://files.catbox.moe/jzkn46.mp4" type="video/mp4">
+  </video>
+
+  <!-- Header -->
+  <header class="glass">
+    <h1>6th Group Business Assignment</h1>
+    <h2>Multinational Companies (MNCs)</h2>
+    <p><em>Prepared for Commerce Lecture Submission</em></p>
+  </header>
+
+  <!-- Developer & Group Members -->
+  <section class="glass">
+    <h3>👨‍💻 Developer & Group Members</h3>
+    <p><strong>Developed by:</strong> Nishith</p>
+    <p><strong>Group Members:</strong></p>
+    <ul style="list-style: none; padding-left: 0;">
+      <li>SAHAZZ – 25126</li>
+      <li>NISHITH – 25127</li>
+      <li>SANATH – 25128</li>
+      <li>SOHAN – 25129</li>
+      <li>SRAJAN – 25130</li>
+    </ul>
+  </section>
+
+  <main>
+    <!-- TOC -->
+    <nav class="toc glass">
+      <h3>📑 Table of Contents</h3>
+      <ul>
+        <li><a href="#meaning">Meaning of Multinational Companies</a></li>
+        <li><a href="#features">Features of MNCs</a></li>
+        <li><a href="#advantages">Advantages of MNCs</a></li>
+        <li><a href="#disadvantages">Disadvantages of MNCs</a></li>
+        <li><a href="#examples">10 Multinational Companies & Products</a></li>
+        <li><a href="#importance">Importance in Global Economy</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </nav>
+
+    <!-- Content -->
+    <article>
+      <section id="meaning" class="glass">
+        <h2>Meaning of Multinational Companies</h2>
+        <p>A Multinational Company (MNC) is a business organization that manages production or delivers services in more than one country. They operate beyond national boundaries and have headquarters in one country (home country) but operate in other nations (host countries). They play a significant role in globalization by connecting economies, cultures, and markets across the world. They contribute to international trade, technology transfer, and job creation.</p>
+      </section>
+
+      <section id="features" class="glass">
+        <h2>Features of Multinational Companies</h2>
+        <ul>
+          <li>Large-scale operations in multiple countries.</li>
+          <li>Centralized control with headquarters in one nation.</li>
+          <li>Advanced technology and strong research & development facilities.</li>
+          <li>Heavy foreign direct investment (FDI) in host countries.</li>
+          <li>Global brand recognition and uniform marketing strategies.</li>
+          <li>Professional management and skilled workforce.</li>
+          <li>Adaptability to local markets while keeping global standards.</li>
+        </ul>
+      </section>
+
+      <section id="advantages" class="glass">
+        <h2>Advantages of MNCs</h2>
+        <p>Multinational companies bring several benefits:</p>
+        <ul>
+          <li>Employment generation across host countries.</li>
+          <li>Access to advanced technology and innovation.</li>
+          <li>Increase in foreign direct investment and infrastructure development.</li>
+          <li>Improved product quality due to global standards.</li>
+          <li>Contribution to GDP and national income growth.</li>
+          <li>Encouragement of international trade and cultural exchange.</li>
+        </ul>
+      </section>
+
+      <section id="disadvantages" class="glass">
+        <h2>Disadvantages of MNCs</h2>
+        <p>Despite benefits, MNCs also bring challenges:</p>
+        <ul>
+          <li>Profit repatriation reduces benefits to host countries.</li>
+          <li>Exploitation of natural resources.</li>
+          <li>Unfair competition with local industries.</li>
+          <li>Possibility of cultural domination.</li>
+          <li>Focus on profit may neglect social responsibility.</li>
+        </ul>
+      </section>
+
+      <section id="examples" class="glass">
+        <h2>10 Multinational Companies & Their Products</h2>
+        <ol>
+          <li><strong>Apple Inc.</strong> – iPhone, MacBook, iPad, Apple Watch</li>
+          <li><strong>Microsoft</strong> – Windows, Office Suite, Xbox, Azure</li>
+          <li><strong>Amazon</strong> – E-commerce, AWS cloud services</li>
+          <li><strong>Google (Alphabet Inc.)</strong> – Search engine, Android, YouTube</li>
+          <li><strong>Samsung</strong> – Smartphones, TVs, semiconductors</li>
+          <li><strong>Toyota</strong> – Cars, trucks, hybrid vehicles</li>
+          <li><strong>Nestlé</strong> – Maggi, KitKat, Nescafé, Cerelac</li>
+          <li><strong>Coca-Cola</strong> – Soft drinks, Minute Maid juices</li>
+          <li><strong>Unilever</strong> – Dove, Surf Excel, Lipton, Lux</li>
+          <li><strong>IBM</strong> – IT services, AI solutions, cloud computing</li>
+        </ol>
+      </section>
+
+      <section id="importance" class="glass">
+        <h2>Importance of MNCs in the Global Economy</h2>
+        <p>MNCs are a driving force in globalization. They integrate economies by setting up cross-border supply chains, ensuring consumers have access to products from across the globe. They also transfer modern technologies and managerial practices to developing countries, contributing to global growth.</p>
+      </section>
+
+      <section id="conclusion" class="glass">
+        <h2>Conclusion</h2>
+        <p>Multinational Companies are a crucial part of the modern global economy. They contribute to development, innovation, and cultural exchange. At the same time, they must act responsibly by ensuring ethical practices, environmental sustainability, and fairness to workers. For developing countries, balancing the benefits and challenges of MNCs is essential for sustainable growth.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass">
+    <p>Prepared by: <strong>6th Group (Commerce)</strong></p>
+    <p>Subject: Business Studies</p>
+  </footer>
+
+  <script>
+    function selectDevice(device) {
+      document.getElementById('device-popup').style.display = 'none';
+      if(device === 'mobile') {
+        document.body.classList.add('mobile');
+      } else {
+        document.body.classList.remove('mobile');
+      }
+    }
+  </script>
+</body>
+</html>
